@@ -4,4 +4,8 @@
     <string name="welcome_with_name">Bienvenue %1$s !</string>
     <string name="edit">EDITER</string>
     <string name="save">SAUVER</string>
+    <string name="next">Next</string>
+    <string name="close">Close</string>
+    <string name="back">Back</string>
+    <string name="step_name">Step</string>
 </resources>
