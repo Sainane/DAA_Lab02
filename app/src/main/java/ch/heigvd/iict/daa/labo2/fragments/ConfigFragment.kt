@@ -43,7 +43,6 @@ class ConfigFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val stepTitle = view.findViewById<TextView>(R.id.step_title)
         val stepNumber = view.findViewById<TextView>(R.id.step_number)
         stepNumber.text = step.toString()
     }
