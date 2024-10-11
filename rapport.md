@@ -134,10 +134,8 @@ En Android, les vues (héritant de `View`) possédant un identifiant unique (`an
 
 - **Mise à jour de la couleur** :
 
-  - Le `SeekBarChangeListener` est appelé lors de la restauration.
+  - `seekBarChangeListener` est appelé lors de la restauration.
   - Il met à jour la variable `color` et applique la couleur au fond du fragment.
-
-- **Code du `SeekBarChangeListener`** :
 
   ```kotlin
   private val seekBarChangeListener = object : SeekBar.OnSeekBarChangeListener {
@@ -189,6 +187,13 @@ La différence de comportement entre les deux fragments s'explique par le mécan
 
 ---
 
+#### Si nous plaçons deux fois le CounterFragment dans l’Activité, nous aurons deux instances indépendantes de celui-ci. Comment est-ce que la restauration de l’état se passe en cas de rotation de l’écran ?
+
+Comme vu précédemment, le `CounterFragment` garde son état si la méthode `onSaveInstanceState` est implémentée. 
+Si on place deux instances du `CounterFragment` dans l'activité, chaque instance aura son propre état. 
+Lors d'un changement d'orientation de l'écran, chaque instance du `CounterFragment` restaurera son propre état.
+Les deux instances du `CounterFragment` sont indépendantes l'une de l'autre.
+
 3. Références
 
 - [Documentation officielle d'Android sur les Fragments](https://developer.android.com/guide/fragments)
@@ -196,7 +201,6 @@ La différence de comportement entre les deux fragments s'explique par le mécan
 - [Classe `SeekBar` (Android Developers)](https://developer.android.com/reference/android/widget/SeekBar)
 - [Propriété `saveEnabled` de `View`](https://developer.android.com/reference/android/view/View#attr_android:saveEnabled)
 
-#### Si nous plaçons deux fois le CounterFragment dans l’Activité, nous aurons deux instances indépendantes de celui-ci. Comment est-ce que la restauration de l’état se passe en cas de rotation de l’écran ?
 
 ### Le FragmentManager
 
