@@ -8,7 +8,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerViewCounter"
-        android:name="ch.heigvd.iict.and.labo2.fragments.CounterFragment"
+        android:name="ch.heigvd.iict.daa.labo2.fragments.CounterFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/fragmentContainerViewColor"
@@ -18,7 +18,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerViewColor"
-        android:name="ch.heigvd.iict.and.labo2.fragments.ColorFragment"
+        android:name="ch.heigvd.iict.daa.labo2.fragments.ColorFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
