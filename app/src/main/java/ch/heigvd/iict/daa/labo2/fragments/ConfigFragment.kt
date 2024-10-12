@@ -1,7 +1,6 @@
 package ch.heigvd.iict.daa.labo2.fragments
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,4 +45,10 @@ class ConfigFragment : Fragment() {
         val stepNumber = view.findViewById<TextView>(R.id.step_number)
         stepNumber.text = step.toString()
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("ARG_STEP", step)
+    }
+
 }

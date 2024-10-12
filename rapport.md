@@ -205,9 +205,14 @@ Les deux instances du `CounterFragment` sont indépendantes l'une de l'autre.
 ### Le FragmentManager
 
 #### A l’initialisation de l’Activité, comment peut-on faire en sorte que la première étape s’affiche automatiquement ?
+On crée et ajoute le premier fragment à la création avec l'argument de step valant 1 seulement dans le cas où l'activité est nouvelle et qu'il n'y a pas d'état sauvegardé. En effet, on vérifie si `savedInstanceState` est null et c'est seulement dans ce cas que l'on ajoute le premier fragment.
 
 #### Comment pouvez-vous faire en sorte que votre implémentation supporte la rotation de l’écran ? Nous nous intéressons en particulier au maintien de l’état de la pile de Fragments et de l’étape en cours lors de la rotation.
+En cas de rotation de l’écran, Android détruit puis recrée l'activité en cours pour gérer les nouvelles configurations. Par défaut la pile de Fragments est recréée à l’identique par le FragmentManager, mais pas l’état interne des Fragments. Le paramètre passé aux fragments indiquant le numéro d'étape est ce qui permet de conserver le numéro de l'étape en cours, car il ne change pas pour un fragment donné. De plus, au `onCreate()` , on vérifie si une instance a été sauvegardée, ce qui nous permet de conserver la cohérence de la pile en n'ajoutant pas un fragment à la création si l'activité est restaurée et pas nouvelle.
 
 #### Dans une transaction sur le Fragment, quelle est la différence entre les méthodes add et replace ?
+`add()` :  Ajoute un fragment au conteneur. Si le conteneur possède déjà des fragments, le nouveau fragment est ajouté par-dessus les autres, créant ainsi une pile de fragments.
+
+`replace()` : Supprime tous les fragments existants dans le conteneur et ajoute le nouveau fragment. 
 
 

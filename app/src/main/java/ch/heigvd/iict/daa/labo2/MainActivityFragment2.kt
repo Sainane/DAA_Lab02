@@ -17,6 +17,7 @@ class MainActivityFragment2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_fragment2)
+
         if(savedInstanceState == null) {
             supportFragmentManager.beginTransaction().add(R.id.fragment_container_view, ConfigFragment.newInstance(1))
                 .addToBackStack(null)
