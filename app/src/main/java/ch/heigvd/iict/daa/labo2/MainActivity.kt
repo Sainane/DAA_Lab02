@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         val editButton = findViewById<Button>(R.id.edit_button)
         editButton.setOnClickListener {
-            getName.launch(null)
+            getName.launch(username)
         }
     }
 

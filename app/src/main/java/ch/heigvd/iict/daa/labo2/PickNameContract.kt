@@ -5,10 +5,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContract
 
-class PickNameContract : ActivityResultContract<Void?, String?>()
+class PickNameContract : ActivityResultContract<String, String?>()
     {
-        override fun createIntent(context: Context, input: Void?): Intent {
-            return Intent(context, InputNameActivity::class.java)
+        override fun createIntent(context: Context, input: String): Intent {
+            return Intent(context, InputNameActivity::class.java).apply {
+                putExtra(InputNameActivity.ASK_FOR_USERNAME, input)
+            }
         }
 
         override fun parseResult(resultCode: Int, intent: Intent?): String? {

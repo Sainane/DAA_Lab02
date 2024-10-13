@@ -17,6 +17,8 @@ class InputNameActivity : AppCompatActivity() {
         val textField = findViewById<EditText>(R.id.edit_text_name)
         val button = findViewById<Button>(R.id.save_button)
 
+        textField.setText(intent.getStringExtra(ASK_FOR_USERNAME))
+
         button.setOnClickListener {
 
             val username = textField.text.toString()
@@ -53,6 +55,6 @@ class InputNameActivity : AppCompatActivity() {
     }
 
     companion object {
-        val ASK_FOR_USERNAME: String = "ASK_FOR_USERNAME"
+        const val ASK_FOR_USERNAME: String = ""
     }
 }
