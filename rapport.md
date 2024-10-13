@@ -48,10 +48,14 @@ personnelle si le username n'est pas null. C'est donc pour cela que nous avons l
 
 #### Veuillez réaliser un diagramme des changements d’état des deux Activités pour les utilisations suivantes, vous mettrez en évidence les différentes instances de chaque Activité
 
-- L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et
-  sauve
-- L’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en
-  mode paysage, renseigne son prénom et sauve.
+L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et sauve
+
+![scenario 1](/img/scenario1.png)
+
+L’utilisateur ouvre l’application en mode portrait, clique sur le bouton éditer, bascule en 
+mode paysage, renseigne son prénom et sauve.
+
+![scenario 2](/img/scenario2.png)
 
 #### Que faut-il mettre en place pour que vos Activités supportent la rotation de l’écran ? Est-ce nécessaire de le réaliser pour les deux Activités, quelle est la différence ?
 
