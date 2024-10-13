@@ -1,0 +1,42 @@
+@startuml
+title Changements d'état de MainActivity et InputNameActivity
+skinparam sequenceMessageAlign center
+
+participant "MainActivity_1" as Main1
+participant "InputNameActivity_1" as Input1
+participant "InputNameActivity_2" as Input2
+participant "MainActivity_2" as Main2
+
+activate Main1
+Main1 -> Main1 : onCreate
+Main1 -> Main1 : onStart
+Main1 -> Main1 : onResume
+Main1 -> Main1 : onPause
+note bottom: edit button clicked
+Main1 -> Input1 : onCreate
+activate Input1
+Input1 -> Input1 : onStart
+Input1 -> Input1 : onResume
+Main1 -> Main1 : onStop
+Input1 -> Input1 : onPause
+note right: screen rotated
+Input1 -> Input1 : onStop
+Input1 -> Input1 : onDestroy
+deactivate Input1
+activate Input2
+Input2 -> Input2 : onCreate
+Input2 -> Input2 : onStart
+Input2 -> Input2 : onResume
+Input2 -> Input2 : onPause
+note left: save button clicked
+Main1 -> Main1 : onDestroy
+deactivate Main1
+activate Main2
+Main2 -> Main2 : onCreate
+Main2 -> Main2 : onStart
+Main2 -> Main2 : onResume
+Input2 -> Input2 : onStop
+Input2 -> Input2 : onDestroy
+deactivate Input2
+deactivate Main2
+@enduml

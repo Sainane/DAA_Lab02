@@ -1,0 +1,35 @@
+@startuml
+skinparam sequenceMessageAlign center
+
+participant "MainActivity" as Main
+participant "InputNameActivity" as Input
+
+activate Main
+Main -> Main: onCreate
+Main -> Main: onStart
+Main -> Main: onResume
+Main -> Main: onPause
+note bottom: edit button clicked
+Main -> Input: onCreate
+activate Input
+Input -> Input: onStart
+Input -> Input: onResume
+Main -> Main: onStop
+Input -> Input: onPause
+note right: screen rotated
+Input -> Input: onStop
+Input -> Input: onDestroy
+Input -> Input: onCreate
+Input -> Input: onStart
+Input -> Input: onResume
+Input -> Input: onPause
+note right: save button clicked
+Main -> Main: onDestroy
+Main -> Main: onCreate
+Main -> Main: onStart
+Main -> Main: onResume
+Input -> Input: onStop
+Input -> Input !! : onDestroy
+deactivate Input
+@enduml
+

@@ -1,0 +1,23 @@
+@startuml
+title Changements d'état de MainActivity et InputNameActivity
+
+participant MainActivity
+participant InputNameActivity
+
+MainActivity -> MainActivity: onCreate
+MainActivity -> MainActivity: onStart
+MainActivity -> MainActivity: onResume
+MainActivity -> MainActivity: onPause
+note bottom: edit button clicked
+MainActivity -> InputNameActivity: onCreate
+InputNameActivity -> InputNameActivity: onStart
+InputNameActivity -> InputNameActivity: onResume
+MainActivity -> MainActivity: onStop
+InputNameActivity -> InputNameActivity: onPause
+note right: save button clicked
+InputNameActivity -> MainActivity: onStart
+MainActivity -> MainActivity: onResume
+InputNameActivity -> InputNameActivity: onStop
+InputNameActivity -> InputNameActivity: onDestroy
+
+@enduml
