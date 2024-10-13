@@ -5,6 +5,26 @@
 ## Application
 
 L'application contient 4 activités: 
+- 'MainActivity' qui sert à lancer l'application pour la manipulation 1.
+- 'InputNameActivity' qui est l'activité secondaire de la manipulation 1.
+- 'MainActivityFragment1' qui sert à lancer l'application pour la manipulation 2.
+- 'MainActivityFragment2' qui sert à lancer l'application pour la manipulation 3.
+
+Pour avoir accès aux différentes manipulations du laboratoire, il faut changer le fichier
+'AndroidManifest.xml'. Dans la balise 'activity' principale, il suffit de changer la string
+dans 'android:name' par le nom de l'activité qui permet de lancer l'application pour la
+manipulation à laquelle vous souhaitez avoir accès.
+
+```xml
+<activity
+    android:name="<Nom de l'activité choisie>"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
 
 ## Manipulations
 
