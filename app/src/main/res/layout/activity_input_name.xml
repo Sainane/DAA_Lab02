@@ -12,27 +12,27 @@
         android:id="@+id/input_name_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/edit_text_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@+id/save_button"
-            android:layout_marginStart="16dp"/>
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/m1_activity_horizontal_margin"
+            android:layout_toStartOf="@+id/save_button" />
 
         <Button
             android:id="@+id/save_button"
-            app:icon = "@drawable/check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:text="@string/save" />
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/m1_activity_horizontal_margin"
+            android:text="@string/save"
+            app:icon="@drawable/check" />
 
     </RelativeLayout>
 

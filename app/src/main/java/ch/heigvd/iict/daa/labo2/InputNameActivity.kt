@@ -7,6 +7,12 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * Activity that allows the user to enter his name.
+ * When the user clicks on the save button, the name is returned to the calling activity.
+ * If the user already has a name, it is displayed in the text field.
+ * @author Eva Ray, Massimo Stefani, Rachel Tranchida
+ */
 class InputNameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

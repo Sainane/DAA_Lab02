@@ -6,6 +6,9 @@ import android.widget.Button
 import androidx.fragment.app.FragmentContainerView
 import ch.heigvd.iict.daa.labo2.fragments.ConfigFragment
 
+/**
+ * @author Eva Ray, Massimo Stefani, Rachel Tranchida
+ */
 class MainActivityFragment2 : AppCompatActivity() {
 
     private lateinit var fragmentContainerView: FragmentContainerView

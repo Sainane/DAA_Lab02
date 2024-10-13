@@ -5,6 +5,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContract
 
+/**
+ * Contract to pick a name from the InputNameActivity.
+ * @author Eva Ray, Massimo Stefani, Rachel Tranchida
+ */
 class PickNameContract : ActivityResultContract<String, String?>()
     {
         override fun createIntent(context: Context, input: String): Intent {

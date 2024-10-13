@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_alignParentStart="true"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/m1_activity_horizontal_margin"
             android:text="@string/welcome" />
 
         <Button
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/m1_activity_horizontal_margin"
             android:text="@string/edit" />
 
     </RelativeLayout>

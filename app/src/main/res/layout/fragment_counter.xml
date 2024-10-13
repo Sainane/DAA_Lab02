@@ -12,7 +12,7 @@
         android:layout_above="@id/f_counter"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
-        android:text="MyCounterFragment"
+        android:text="@string/mycounterfragment"
         android:textStyle="bold" />
 
     <TextView
@@ -28,6 +28,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:layout_below="@id/f_counter"
-        android:text="Increment" />
+        android:text="@string/increment" />
 
 </RelativeLayout>
