@@ -7,12 +7,16 @@ import androidx.fragment.app.FragmentContainerView
 import ch.heigvd.iict.daa.labo2.fragments.ConfigFragment
 
 /**
+ * It displays instances of ConfigFragment and allows users to navigate between
+ * them using "Back", "Next", and "Close" buttons.
+ * The activity maintains a back stack to support navigation and handles transitions
+ * between different steps (fragments).
  * @author Eva Ray, Massimo Stefani, Rachel Tranchida
  */
 class MainActivityFragment2 : AppCompatActivity() {
 
     private lateinit var fragmentContainerView: FragmentContainerView
-    private lateinit var buttonPrevious: Button
+    private lateinit var buttonBack: Button
     private lateinit var buttonClose: Button
     private lateinit var buttonNext: Button
     private var maxStep = 3
@@ -27,11 +31,11 @@ class MainActivityFragment2 : AppCompatActivity() {
                 .commit()
         }
         fragmentContainerView = findViewById(R.id.fragment_container_view)
-        buttonPrevious = findViewById(R.id.button_previous)
+        buttonBack = findViewById(R.id.button_previous)
         buttonClose = findViewById(R.id.button_close)
         buttonNext = findViewById(R.id.button_next)
 
-        buttonPrevious.setOnClickListener { back() }
+        buttonBack.setOnClickListener { back() }
         buttonClose.setOnClickListener { finish() }
         buttonNext.setOnClickListener { goToNextStep() }
 

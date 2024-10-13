@@ -9,6 +9,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import ch.heigvd.iict.daa.labo2.R
 
+/**
+ * A fragment that displays a step number.
+ * @author Eva Ray, Massimo Stefani, Rachel Tranchida
+ */
 private const val ARG_STEP = "step"
 
 class ConfigFragment : Fragment() {

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="m1_activity_horizontal_margin" unit="dp">16</dimen>
+    <dimen name="outer_margin_nav_button">32dp</dimen>
+    <dimen name="inner_margin_nav_button">16dp</dimen>
+    <dimen name="text_size_step_number">24sp</dimen>
 </resources>
