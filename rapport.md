@@ -6,18 +6,17 @@
 
 L'application contient 4 activités:
 
-- 'MainActivity' qui sert à lancer l'application pour la manipulation 1.
-- 'InputNameActivity' qui est l'activité secondaire de la manipulation 1.
-- 'MainActivityFragment1' qui sert à lancer l'application pour la manipulation 2.
-- 'MainActivityFragment2' qui sert à lancer l'application pour la manipulation 3.
+- ``MainActivity`` qui sert à lancer l'application pour la manipulation 1.
+- ``InputNameActivity`` qui est l'activité secondaire de la manipulation 1.
+- ``MainActivityFragment1`` qui sert à lancer l'application pour la manipulation 2.
+- ``MainActivityFragment2`` qui sert à lancer l'application pour la manipulation 3.
 
 Pour avoir accès aux différentes manipulations du laboratoire, il faut changer le fichier
-'AndroidManifest.xml'. Dans la balise 'activity' principale, il suffit de changer la string
-dans 'android:name' par le nom de l'activité qui permet de lancer l'application pour la
+``AndroidManifest.xml``. Dans la balise ``activity`` principale, il suffit de changer la string
+dans ``android:name`` par le nom de l'activité qui permet de lancer l'application pour la
 manipulation à laquelle vous souhaitez avoir accès.
 
 ```xml
-
 <activity android:name="<Nom de l'activité choisie>" android:exported="true">
     <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -40,13 +39,17 @@ la seconde activité, on retourne sur la première activité et le texte affich�
 John !".
 
 Cela se passe car lorqu'on appuie sur "back" depuis la première activité sans avoir sauvé, c'est
-un objet null qui est passé à la première activité. Dans la fonction 'getName', on update le champ
-'username' uniquement si l'objet reçu n'est pas null. La fonction 'updateName' est ensuite appelée
+un objet null qui est passé à la première activité. Dans la fonction ``getName``, on update le champ
+``username`` uniquement si l'objet reçu n'est pas null. La fonction ``updateName`` est ensuite appelée
 et affiche la string de base si le username est null ou le string qui souhaite la bienvenue de
 manière
 personnelle si le username n'est pas null. C'est donc pour cela que nous avons le résultat observé.
 
 #### Veuillez réaliser un diagramme des changements d’état des deux Activités pour les utilisations suivantes, vous mettrez en évidence les différentes instances de chaque Activité
+
+##### Remarque
+
+Les diagramme suivant ont été réalisés à partir des logs affichés lors des manipulations demandées. Les logs bruts peuvent être trouvés dans la partie "Annexe" de ce rapport.
 
 L’utilisateur ouvre l’application, clique sur le bouton éditer, renseigne son prénom et sauve
 
@@ -59,20 +62,20 @@ mode paysage, renseigne son prénom et sauve.
 
 #### Que faut-il mettre en place pour que vos Activités supportent la rotation de l’écran ? Est-ce nécessaire de le réaliser pour les deux Activités, quelle est la différence ?
 
-Lorsqu'on tourne l'écran, Android relance l'activité qui est en train de run ('onDestroy()' est
-appelée, suivie de 'onCreate()'). Par conséquent, le champ "username" est réinitialisé. C'est pour
+Lorsqu'on tourne l'écran, Android relance l'activité qui est en train de run (``onDestroy()`` est
+appelée, suivie de ``onCreate()``). Par conséquent, le champ ``username`` est réinitialisé. C'est pour
 cela que lorsqu'on entre son nom, qu'on sauve et qu'on tourne l'écran, la string affichée est
 "Bienvenue, veuillez entrer votre nom" et non pas celle qui shouhaite la bienvenue.
 
 Si on souhaite que les activités supportent la rotation de l'écran, il faut override les fonctions
-'onSaveInstanceState' et 'onRestoreInstanceState'. La méthode 'onSaveInstanceState' permet de
+``onSaveInstanceState`` et ``onRestoreInstanceState``. La méthode 'onSaveInstanceState' permet de
 sauvegarder l'état actuel de l'activité dans un bundle avant sa destruction, et
-'onRestoreInstanceState' permet de restaurer cet état lorsque l'activité est recréée.
+``onRestoreInstanceState`` permet de restaurer cet état lorsque l'activité est recréée.
 
 Il est nécessaire d'override ces méthodes uniquement pour la première activité. En effet,
-c'est elle qui contient l'état 'username' qui doit être sauvegardé. En ce qui concerne la deuxième
-activité, son 'EditText' conserve son état automatiquement grâce à la sauvegarde automatique des
-vues d'Android, puisqu'il hérite directement de 'View'.
+c'est elle qui contient l'état ``username`` qui doit être sauvegardé. En ce qui concerne la deuxième
+activité, son ``EditText`` conserve son état automatiquement grâce à la sauvegarde automatique des
+vues d'Android, puisqu'il hérite directement de ``View``.
 
 ### Les fragments, premiers pas
 
@@ -269,5 +272,52 @@ l'activité est restaurée et pas nouvelle.
 fragment est ajouté par-dessus les autres, créant ainsi une pile de fragments.
 
 `replace()` : Supprime tous les fragments existants dans le conteneur et ajoute le nouveau fragment. 
+
+## Annexe 
+
+### Logs de la première utilisation pour la manipulation 1
+
+| Date                | PID      | TID      | Activity           | Package                            | Level | Method    |
+|---------------------|----------|----------|--------------------|------------------------------------|-------|-----------|
+| 2024-10-10 16:38:07 | 6690     | 6690     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onCreate  |
+| 2024-10-10 16:38:07 | 6690     | 6690     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onStart   |
+| 2024-10-10 16:38:07 | 6690     | 6690     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onResume  |
+| 2024-10-10 16:38:11 | 6690     | 6690     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onPause   |
+| 2024-10-10 16:38:11 | 6690     | 6690     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onCreate  |
+| 2024-10-10 16:38:11 | 6690     | 6690     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onStart   |
+| 2024-10-10 16:38:11 | 6690     | 6690     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onResume  |
+| 2024-10-10 16:38:11 | 6690     | 6690     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onStop    |
+| 2024-10-10 16:38:20 | 6690     | 6690     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onPause   |
+| 2024-10-10 16:38:20 | 6690     | 6690     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onStart   |
+| 2024-10-10 16:38:20 | 6690     | 6690     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onResume  |
+| 2024-10-10 16:38:21 | 6690     | 6690     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onStop    |
+| 2024-10-10 16:38:21 | 6690     | 6690     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onDestroy |
+
+
+### Logs de la deuxième utilisation pour la manipulation 1
+
+| Date                | PID      | TID      | Activity           | Package                            | Level | Method    |
+|---------------------|----------|----------|--------------------|------------------------------------|-------|-----------|
+| 2024-10-10 16:44:17 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onCreate  |
+| 2024-10-10 16:44:17 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onStart   |
+| 2024-10-10 16:44:17 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onResume  |
+| 2024-10-10 16:44:20 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onPause   |
+| 2024-10-10 16:44:20 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onCreate  |
+| 2024-10-10 16:44:20 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onStart   |
+| 2024-10-10 16:44:20 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onResume  |
+| 2024-10-10 16:44:21 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onStop    |
+| 2024-10-10 16:44:24 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onPause   |
+| 2024-10-10 16:44:24 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onStop    |
+| 2024-10-10 16:44:24 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onDestroy |
+| 2024-10-10 16:44:24 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onCreate  |
+| 2024-10-10 16:44:24 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onStart   |
+| 2024-10-10 16:44:24 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onResume  |
+| 2024-10-10 16:44:36 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onPause   |
+| 2024-10-10 16:44:36 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onDestroy |
+| 2024-10-10 16:44:36 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onCreate  |
+| 2024-10-10 16:44:36 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onStart   |
+| 2024-10-10 16:44:36 | 6918     | 6918     | MainActivity        | ch.heigvd.iict.daa.labo2           | D     | onResume  |
+| 2024-10-10 16:44:37 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onStop    |
+| 2024-10-10 16:44:37 | 6918     | 6918     | InputNameActivity   | ch.heigvd.iict.daa.labo2           | D     | onDestroy |
 
 
